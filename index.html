@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yaqeen's Archive</title>
  <link rel="stylesheet" href="style.css?v=9999">
-<link rel="icon" type="image/png" href="icons/favicon.png?v=2">
+<link rel="icon" type="image/png" href="icons/book-icon.png">
 </head>
 
 <body>
   <div id="container">
 
-```
+
 <header>
   <h1>YAQEEN AL DAFFA'EI</h1>
-  <p>Where ideas become stories.</p>
+  <p>Where Ideas Become Stories.</p>
 </header>
 
 <div id="layout">
@@ -56,53 +56,124 @@
 </nav>
 
   <main>
-    <section class="hero" id="home">
-   <h2 class="fade-title">Welcome to my little archive</h2>
-<p class="divider">୨୧ ─────────────── ୨୧</p>
 
-      <p class="fade-text">
-  A collection of my writing, projects, and creative work. A little space for ideas, stories, and everything I create along the way.
+  <section class="hero" id="home">
+
+    <h2 class="fade-title">Welcome to My little Archive</h2>
+
+    <p class="welcome-divider">
+  <span class="mini-bow">୨ৎ</span>
+  <span class="thin-line"></span>
+  <span class="mini-bow">୨ৎ</span>
 </p>
 
-     <a href="writing.html" class="main-button fade-button">⋆. 𐙚˚࿔ Browse My Writing 𝜗𝜚˚⋆</a>
-    </section>
+    <p class="fade-text">
+      A collection of my writing, projects and creative work. A little space for ideas, stories and everything I create along the way.
+    </p>
 
-    <section class="card" id="about">
-      <h3>About Me</h3>
-      <p>
-  Hello! I'm Yaqeen, a Professional Writing graduate with a love for storytelling, creativity, and meaningful communication. This archive brings together my writing, projects, and creative work as I continue to learn, grow, and explore new ideas.
-</p>
-    </section>
-  </main>
+    <a href="writing.html" class="main-button fade-button">
+  <span class="button-star">✦</span>
+  Browse My Writing
+  <span class="button-star">✦</span>
+</a>
+
+  </section>
+
+
+  <section class="card" id="about">
+
+    <h3>About Me</h3>
+
+    <p>
+      Hello! I'm Yaqeen, a Professional Writing graduate with a love for storytelling, creativity and meaningful communication. This archive brings together my writing, projects and creative work as I continue to learn, grow and explore new ideas.
+    </p>
+
+  </section>
+
+</main>
 
   <aside>
+<aside>
   <div class="book-notes">
 
     <div class="book-page left-page">
-      <h3>Little Notes ୨ৎ˚⋆</h3>
+      <h3>Little Notes </h3>
 
       <p class="note-label">Status</p>
-      <p>Open to opportunities</p>
+      <p>Open to Opportunities</p>
     </div>
 
     <div class="book-page right-page">
       <p class="note-label">Mood</p>
-      <p>Soft archive</p>
+      <p>Soft Archive</p>
 
       <p class="note-label">Theme</p>
-      <p>Paper, petals & words</p>
+      <p>Paper, petals &amp; words</p>
     </div>
+
+  </div>
+
+  <!-- Words I Keep -->
+  <div class="words-card">
+    <div class="words-tape"></div>
+
+    <h3>
+  <span class="tiny-star">✦</span>
+  Words I Keep
+  <span class="tiny-star">✦</span>
+</h3>
+
+    <p id="quote-text"></p>
+<p id="quote-author"></p>
 
   </div>
 </aside>
 
-</div>
 
-<footer>
-  <p>Made by Yaqeen</p>
+
+</div> <!-- closes #layout -->
+
+<footer class="site-footer">
+  <p>୨ৎ Made By Yaqeen ୨ৎ</p>
 </footer>
-```
+<script>
+  const quotes = [
+    {
+      text: "To live is the rarest thing in the world. Most people exist, that is all.",
+      author: "Oscar Wilde"
+    },
+    {
+      text: "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
+      author: "Ralph Waldo Emerson"
+    },
+    {
+      text: "A writer is a world trapped in a person.",
+      author: "Victor Hugo"
+    },
+    {
+      text: "There is no perfect time to write. There’s only now.",
+      author: "Barbara Kingsolver"
+    }
+  ];
 
-  </div>
+  let quoteIndex = 0;
+
+  function showQuote() {
+    document.getElementById("quote-text").textContent =
+      `“${quotes[quoteIndex].text}”`;
+
+    document.getElementById("quote-author").textContent =
+      `— ${quotes[quoteIndex].author}`;
+
+    quoteIndex = (quoteIndex + 1) % quotes.length;
+  }
+
+  showQuote();
+
+  // Change every 6 minutes
+  setInterval(showQuote, 6 * 60 * 1000);
+</script>
+</div> <!-- closes #container -->
+
 </body>
 </html>

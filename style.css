@@ -1,324 +1,847 @@
-/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
-   HTML content. To learn how to do something, just try searching Google for questions like
-   "how to change link color." */
-@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito:wght@400;600;700&display=swap');
+/* ========================================
+   YAQEEN'S ARCHIVE
+   CLEAN MASTER STYLESHEET
+======================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Marcellus&family=Nunito:wght@400;500;600;700&display=swap");
+
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
- background-image: url("icons/background.jpg");
+
+  background-color: #fffaf7;
+  background-image: url("icons/background.jpg");
   background-repeat: repeat;
   background-size: 300px;
-  background-color: #fffaf7;
-  font-family: "Nunito", sans-serif;
+
   color: #5f4b43;
+
+  font-family: "Nunito", sans-serif;
+
+  animation: pageFade 0.7s ease;
 }
 
-header h1,
-h2,
-h3  {
-  font-family: "Cormorant Garamond", serif;
+img {
+  max-width: 100%;
 }
+
+a {
+  color: inherit;
+}
+
+
+/* ========================================
+   MAIN WEBSITE WIDTH
+======================================== */
 
 #container {
-  width: 1100px;
+  width: 1120px;
+  max-width: calc(100% - 40px);
+
   margin: 35px auto;
 }
 
-header, nav, main, aside, footer, .card {
-background: #fff8f1;
-  border: 2px solid #d8c5b4;
-  border-radius: 22px;
-  padding: 20px;
-  box-shadow: 0 6px 18px rgba(120, 90, 70, 0.12);
+
+/* ========================================
+   BEAUTIFUL TYPOGRAPHY
+======================================== */
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+
+  color: #5e4640;
+
+  font-family: "Cormorant Garamond", serif;
 }
 
+p {
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.site-header,
 header {
-  text-align: center;
-  background: #f4dce3;
+  padding: 28px 25px;
+
   margin-bottom: 20px;
+
+  background: #f4dce3;
+
+  border: 2px solid #d8c5b4;
+  border-radius: 24px;
+
+  box-shadow: 0 7px 20px rgba(120, 90, 70, 0.12);
+
+  text-align: center;
 }
 
+.site-header h1,
 header h1 {
   margin: 0;
-  font-size: 42px;
+
+  font-family: "Marcellus", serif;
+
+  font-size: 40px;
+  font-weight: 400;
+
   letter-spacing: 2px;
 }
 
-header p {
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.7;
+.site-header p,
+header > p {
+  margin: 5px auto 0;
+
+  color: #725c53;
+
+  font-size: 16px;
 }
+
+
+/* ========================================
+   MAIN THREE-COLUMN LAYOUT
+
+   LEFT  = Navigation
+   MIDDLE = Page
+   RIGHT = Side card
+======================================== */
 
 #layout {
   display: grid;
-  grid-template-columns: 220px 1fr 340px;
+
+  grid-template-columns:
+    220px
+    minmax(0, 1fr)
+    300px;
+
   gap: 20px;
+
+  align-items: start;
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.side-nav,
+nav {
+  padding: 20px;
+
+  background: #fff8f1;
+
+  border: 2px solid #d8c5b4;
+  border-radius: 22px;
+
+  box-shadow: 0 6px 18px rgba(120, 90, 70, 0.12);
 }
 
 .nav-card {
   display: flex;
+
   align-items: center;
+
   gap: 14px;
 
-  background: transparent;
+  padding: 13px 15px;
 
-  border-radius: 18px;
+  margin-bottom: 10px;
 
-  padding: 14px 18px;
-  margin-bottom: 14px;
+  border-radius: 17px;
 
-  text-decoration: none;
   color: #6a5149;
 
-  transition: all 0.25s ease;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.nav-card:last-child {
+  margin-bottom: 0;
 }
 
 .nav-card:hover {
-  background: rgba(244, 220, 227, 0.45);
-  transform: translateX(5px);
+  background: rgba(244, 220, 227, 0.55);
+
+  transform: translateX(4px);
 }
 
 .nav-card img {
   width: 38px;
   height: 38px;
+
+  flex-shrink: 0;
+
   object-fit: contain;
 }
 
-.nav-card span .nav-card span {
-  font-size: 20px;
+.nav-card span {
+  font-size: 18px;
   font-weight: 600;
 }
-.hero h2 {
-    font-family: "Marcellus", serif;
-      font-size: 52px;
-    font-weight: normal;
-    color: #6A5149;
-    text-align: center;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-}
 
-.typewriter {
-  width: 260px;
-  max-width: 90%;
-  margin-top: 15px;
-}
 
-.books {
-  width: 100%;
-  border-radius: 18px;
-  margin-bottom: 15px;
-}
+/* ========================================
+   MAIN PAGE
+======================================== */
 
-.card {
-  margin-top: 18px;
-  background: #fffaf3;
-}
+.main-page,
+main {
+  min-width: 0;
 
-footer {
-  margin-top: 20px;
-  text-align: center;
-  background: #f4dce3;
-}
+  padding: 27px;
 
-@media (max-width: 900px) {
-  #container {
-    width: 92%;
-  }
+  background: #fff8f1;
 
-  #layout {
-    grid-template-columns: 1fr;
-  }
-}.main-button {
-  display: inline-block;
-  margin-top: 18px;
-  padding: 12px 22px;
-  background: #f4dce3;
-  color: #5f4b43;
-  text-decoration: none;
   border: 2px solid #d8c5b4;
-  border-radius: 18px;
-  transition: 0.3s;
+  border-radius: 22px;
+
+  box-shadow: 0 6px 18px rgba(120, 90, 70, 0.12);
 }
 
-.main-button:hover {
-  background: #ead0d8;
-  transform: translateY(-3px);
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+  text-align: center;
 }
+
+.hero h2 {
+  margin: 5px 0 4px;
+
+  font-family: "Marcellus", serif;
+
+  font-size: 49px;
+  font-weight: 400;
+
+  letter-spacing: 0.7px;
+
+  color: #6a5149;
+}
+
+.hero-text,
+.hero > p:not(.divider) {
+  max-width: 650px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  color: #6b5951;
+
+  font-size: 16px;
+
+  line-height: 1.75;
+}
+
 .divider {
-    text-align: center;
-  color: #D5C2CB;
-    font-size: 20px;
-    letter-spacing: 2px;
-    margin: 12px 0 24px;
+  margin: 8px 0 21px;
+
+  color: #d4bfc8;
+
+  font-size: 18px;
+
+  letter-spacing: 2px;
+
+  text-align: center;
 }
-.page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 30px;
+
+
+/* ========================================
+   GENERAL CONTENT SECTIONS
+======================================== */
+
+.content-section,
+.card {
+  margin-top: 22px;
+
+  padding: 24px;
+
+  background: #fffaf3;
+
+  border: 2px solid #d8c5b4;
+  border-radius: 22px;
+
+  box-shadow: 0 6px 16px rgba(120, 90, 70, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
+
+.content-section:hover,
+.card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 23px rgba(120, 90, 70, 0.13);
+}
+
+.section-title {
+  margin: 0 0 22px;
+
+  font-size: 29px;
+
+  text-align: left;
+
+  color: #604941;
+}
+
+
+/* ========================================
+   NORMAL WRITING CARDS
+======================================== */
 
 .writing-card {
-    background: #fffdfb;
-    border: 2px solid #d8c5b4;
-    border-radius: 28px;
-    padding: 40px;
-    margin: 20px auto;
-    max-width: 700px;
-    box-shadow: 0 8px 20px rgba(120,90,70,.08);
-    transition: .3s;
+  max-width: 700px;
+
+  margin: 20px auto;
+
+  padding: 34px;
+
+  background: #fff1e4;
+
+  border: 2px solid #d8c5b4;
+  border-radius: 24px;
+
+  box-shadow: 0 7px 18px rgba(120, 90, 70, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .writing-card:hover {
-    transform: translateY(-4px);
-}
-.section-title{
-    font-size:30px;
-    margin-bottom:25px;
-    color:#5f4b43;
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 23px rgba(120, 90, 70, 0.12);
 }
 
 .writing-card h3 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 42px;
-    margin-top: 0;
-    margin-bottom: 18px;
-    color: #5f4b43;
-}
+  margin: 0 0 16px;
 
+  font-size: 34px;
+
+  color: #604941;
+}
 
 .writing-card p {
-    font-size: 17px;
-    line-height: 1.8;
-    color: #6b5a53;
- max-width:520px;}
+  margin-top: 0;
 
-.writing-card a {
+  color: #6b5951;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.writing-card a:not(.read-button) {
   display: inline-block;
-  margin-top: 15px;
-  padding: 12px 22px;
-  background: #f4dce3;
-  color: #5f4b43;
-  text-decoration: none;
+
+  margin-top: 12px;
+
+  padding: 11px 20px;
+
+  background: fff1e4;
+
   border: 2px solid #d8c5b4;
-  border-radius: 18px;
-  transition: 0.3s;
+  border-radius: 17px;
+
+  color: #5f4b43;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: 0.25s ease;
 }
 
-.writing-card a:hover {
+.writing-card a:not(.read-button):hover {
   background: #ead0d8;
-  transform: translateY(-3px);
-text-align: left;}
 
-.read-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background: #f4dce3;
-    color: #5f4b43;
-    text-decoration: none;
-    border: 2px solid #d8c5b4;
-    border-radius: 18px;
-    font-weight: 600;
-    transition: .3s;
+  transform: translateY(-2px);
 }
 
-.read-button:hover {
-    background: #ead0d8;
+
+/* ========================================
+   RESUME INNER WHITE CARD
+======================================== */
+
+.resume-document-card {
+  padding: 32px 28px;
+
+  background: fff1e4;
+
+  border: 2px solid #d8c5b4;
+  border-radius: 24px;
+
+  box-shadow: 0 7px 18px rgba(120, 90, 70, 0.08);
+
+  text-align: center;
 }
+
+.resume-document-card p {
+  max-width: 470px;
+
+  margin: 0 auto;
+
+  color: #6b5951;
+
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   BUTTONS
+======================================== */
+
 .button-wrap {
-    text-align: center;
-   margin-top:18px;
-}
-.project-cover{
-    width:100%;
-    max-height:320px;
-    object-fit:cover;
+  display: flex;
 
-    border-radius:18px;
-    border:2px solid #d8c5b4;
-    margin-bottom:22px;
-}
-/* Soft page fade-in */
-body {
-  animation: softFadeIn 0.8s ease;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 23px;
 }
 
-@keyframes softFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Softer card movement */
-.card,
-.writing-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover,
-.writing-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(120, 90, 70, 0.16);
-}
-
-/* Softer buttons */
 .main-button,
 .read-button {
-  transition: transform 0.3s ease, background 0.3s ease;
+  display: inline-block;
+
+  padding: 11px 20px;
+
+  background: #f4dce3;
+
+  border: 2px solid #d8c5b4;
+  border-radius: 17px;
+
+  color: #5f4b43;
+
+  font-family: "Nunito", sans-serif;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 
 .main-button:hover,
 .read-button:hover {
-  transform: translateY(-3px);
-}
-/* Homepage staged animation */
+  background: #ead0d8;
 
-.fade-title{
-    animation: fadeUp .8s ease forwards;
+  transform: translateY(-2px);
 }
 
-.fade-text{
-    opacity:0;
-    animation: fadeUp .8s ease forwards;
-    animation-delay:.35s;
+
+/* ========================================
+   RIGHT SIDE AREA
+
+   IMPORTANT:
+   THE AREA ITSELF HAS NO BOX.
+   ONLY THE CARD INSIDE IS VISIBLE.
+======================================== */
+
+.side-area,
+#layout > aside {
+  min-width: 0;
+
+  padding: 0;
+
+  background: transparent;
+
+  border: none;
+
+  box-shadow: none;
 }
 
-.fade-button{
-    opacity:0;
-    animation: fadeUp .8s ease forwards;
-    animation-delay:.7s;
+
+/* ========================================
+   RESUME QUICK PROFILE
+   ONE CLEAN WHITE CARD
+======================================== */
+
+.resume-corner {
+  width: 100%;
+
+  padding: 29px 24px;
+
+  background: fff1e4;
+
+  border: 2px solid #d8c5b4;
+  border-radius: 22px;
+
+  box-shadow: 0 7px 18px rgba(120, 90, 70, 0.11);
+
+  text-align: center;
 }
 
-@keyframes fadeUp{
+.resume-corner h3 {
+  margin: 0 0 28px;
 
-from{
-opacity:0;
-transform:translateY(15px);
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 27px;
+  font-weight: 600;
+
+  color: #5f463f;
 }
 
-to{
-opacity:1;
-transform:translateY(0);
+.profile-item {
+  margin-bottom: 24px;
 }
 
-}
-/* Custom soft cursor */
-body,
-a,
-button,
-.nav-card,
-.main-button,
-.read-button {
-    cursor: url("icons/cursor.png%20(2).png") 8 8, auto;
+.profile-item:last-child {
+  margin-bottom: 0;
 }
 
-/* Contact page */
+.resume-corner p {
+  margin: 0;
+
+  color: #6b5148;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+.resume-corner .corner-label {
+  margin-bottom: 4px;
+
+  color: #5f463f;
+
+  font-weight: 700;
+}
+
+
+/* ========================================
+   WRITING PAGE SIDE CARD
+======================================== */
+
+.writing-corner {
+  width: 100%;
+
+  padding: 29px 24px;
+
+  background: #fffdfb;
+
+  border: 2px solid #d8c5b4;
+  border-radius: 22px;
+
+  box-shadow: 0 7px 18px rgba(120, 90, 70, 0.11);
+
+  text-align: center;
+}
+
+.writing-corner h3 {
+  margin: 0 0 26px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 27px;
+
+  color: #5f463f;
+}
+
+.writing-corner p {
+  margin: 0 0 20px;
+
+  color: #6b5148;
+
+  line-height: 1.6;
+}
+
+.writing-corner .corner-label {
+  margin-bottom: 4px;
+
+  color: #5f463f;
+
+  font-weight: 700;
+}
+
+
+/* ========================================
+   PROJECT PAGE SIDE CARD
+======================================== */
+
+.project-corner {
+  width: 100%;
+
+  padding: 29px 24px;
+
+  background: #fffdfb;
+
+  border: 2px solid #d8c5b4;
+  border-radius: 22px;
+
+  box-shadow: 0 7px 18px rgba(120, 90, 70, 0.11);
+
+  text-align: center;
+}
+
+.project-corner h3 {
+  margin: 0 0 26px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 27px;
+
+  color: #5f463f;
+}
+
+.project-corner p {
+  margin: 0 0 20px;
+
+  color: #6b5148;
+
+  line-height: 1.6;
+}
+
+.project-corner .corner-label {
+  margin-bottom: 4px;
+
+  color: #5f463f;
+
+  font-weight: 700;
+}
+
+
+/* ========================================
+   HOMEPAGE OPEN BOOK
+======================================== */
+
+.book-notes {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  margin-top: 8px;
+
+  background: transparent;
+}
+
+.book-page {
+  position: relative;
+
+  min-height: 180px;
+
+  padding: 23px 17px 28px;
+
+  background: #fffaf7;
+
+  border: 2px solid #d8c5b4;
+
+  text-align: center;
+}
+
+.left-page {
+  border-right: 1px solid #d8c5b4;
+
+  border-radius: 28px 8px 8px 28px;
+
+  box-shadow: -6px 7px 14px rgba(120, 90, 70, 0.10);
+
+  transform: rotate(-0.8deg);
+}
+
+.right-page {
+  border-left: 1px solid #d8c5b4;
+
+  border-radius: 8px 28px 28px 8px;
+
+  box-shadow: 6px 7px 14px rgba(120, 90, 70, 0.10);
+
+  transform: rotate(0.8deg);
+}
+
+.book-page h3 {
+  margin: 0 0 25px;
+
+  font-size: 23px;
+}
+
+.book-page p {
+  margin: 0 0 20px;
+
+  color: #6b5148;
+
+  line-height: 1.5;
+}
+
+.book-page .note-label {
+  margin-bottom: 4px;
+
+  font-weight: 700;
+}
+
+.book-notes::after {
+  content: "";
+
+  position: absolute;
+
+  top: 8px;
+  bottom: 8px;
+
+  left: 50%;
+
+  width: 8px;
+
+  transform: translateX(-50%);
+
+  background: linear-gradient(
+    to right,
+    rgba(120, 90, 70, 0.08),
+    rgba(255, 250, 247, 0.72),
+    rgba(120, 90, 70, 0.08)
+  );
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.book-notes::before {
+  content: "୨ৎ";
+
+  position: absolute;
+
+  bottom: -19px;
+  left: 50%;
+
+  z-index: 5;
+
+  transform: translateX(-50%);
+
+  color: #b98f9a;
+
+  font-size: 23px;
+}
+
+
+/* ========================================
+   WORDS I KEEP CARD
+======================================== */
+
+.words-card {
+  position: relative;
+
+  width: 290px;
+  max-width: 100%;
+
+  margin: 65px auto 0;
+
+  padding: 31px 25px 25px;
+
+  background: #fffdfb;
+
+  border: 2px solid #d8c5b4;
+  border-radius: 20px;
+
+  box-shadow: 0 7px 18px rgba(120, 90, 70, 0.11);
+
+  text-align: center;
+}
+
+.words-tape {
+  position: absolute;
+
+  top: -13px;
+  left: 50%;
+
+  width: 80px;
+  height: 24px;
+
+  transform: translateX(-50%) rotate(1deg);
+
+  background: rgba(225, 177, 190, 0.68);
+
+  border-radius: 2px;
+}
+
+.words-card h3 {
+  margin: 0 0 17px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 25px;
+
+  color: #5f463f;
+}
+
+.words-quote {
+  margin: 0;
+
+  color: #6b5148;
+
+  font-family: Georgia, serif;
+
+  font-size: 14px;
+  font-style: italic;
+
+  line-height: 1.7;
+}
+
+.words-author {
+  margin: 15px 0 0;
+
+  color: #6b5148;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* ========================================
+   PROJECT COVERS
+======================================== */
+
+.project-cover {
+  display: block;
+
+  width: 100%;
+
+  max-height: 320px;
+
+  margin-bottom: 22px;
+
+  object-fit: cover;
+
+  border: 2px solid #d8c5b4;
+  border-radius: 18px;
+}
+
+
+/* ========================================
+   CONTACT PAGE
+======================================== */
+
 .contact-card {
   text-align: left;
 }
@@ -337,156 +860,428 @@ button,
 
 .contact-label {
   margin: 0 0 6px;
+
   font-weight: 700;
 }
 
 .contact-email {
   margin: 0;
+
   font-weight: 600;
 }
 
-.contact-card .button-wrap {
-  justify-content: flex-start;
-}
 .contact-link {
   color: #6b5148;
+
   font-weight: 600;
+
   text-decoration: none;
 }
 
 .contact-link:hover {
   text-decoration: underline;
 }
-.contact-link {
-  cursor: pointer !important;
+
+
+/* ========================================
+   OTHER EXISTING WEBSITE ELEMENTS
+======================================== */
+
+.page {
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 40px 25px;
 }
 
-/* Open book - Little Notes */
+.books {
+  width: 100%;
 
-.book-notes {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  background: #fffaf7;
+  margin-bottom: 15px;
+
+  border-radius: 18px;
+}
+
+.typewriter {
+  width: 260px;
+  max-width: 90%;
+
+  margin-top: 15px;
+}
+
+
+/* ========================================
+   HOMEPAGE FADE EFFECTS
+======================================== */
+
+.fade-title {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.fade-text {
+  opacity: 0;
+
+  animation: fadeUp 0.8s ease forwards;
+
+  animation-delay: 0.3s;
+}
+
+.fade-button {
+  opacity: 0;
+
+  animation: fadeUp 0.8s ease forwards;
+
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.site-footer,
+footer {
+  margin-top: 20px;
+
+  padding: 17px;
+
+  background: #f4dce3;
+
   border: 2px solid #d8c5b4;
-  border-radius: 28px 28px 18px 18px;
-  box-shadow: 0 8px 20px rgba(120, 90, 70, 0.12);
-  overflow: hidden;
-}
+  border-radius: 22px;
 
-.book-notes::after {
-  content: "";
-  position: absolute;
-  top: 12px;
-  bottom: 12px;
-  left: 50%;
-  width: 2px;
-  background: #d8c5b4;
-}
+  box-shadow: 0 6px 18px rgba(120, 90, 70, 0.10);
 
-.book-page {
-  padding: 28px 20px;
-  min-height: 250px;
-}
-
-.left-page {
   text-align: center;
-  border-radius: 28px 0 0 18px;
 }
 
-.right-page {
-  text-align: center;
-  border-radius: 0 28px 18px 0;
+.site-footer p,
+footer p {
+  margin: 0;
+
+  color: #6b5148;
+
+  font-size: 14px;
 }
 
-.book-page h3 {
-  margin-top: 0;
-  margin-bottom: 30px;
+
+/* =========================================
+   CURSOR
+========================================= */
+
+body {
+  cursor: url("icons/wand-cursor-32.png") 2 2, auto !important;
 }
 
-.note-label {
-  font-weight: bold;
-  margin: 0 0 6px;
+a,
+button,
+input,
+textarea,
+select,
+label {
+  cursor: url("icons/wand-cursor-32.png") 2 2, auto !important;
 }
 
-.book-page p {
-  margin-top: 0;
-  margin-bottom: 24px;
-}
-/* Make Little Notes look like an open book */
 
-.book-notes {
-  overflow: visible;
-  border-radius: 8px 22px 22px 8px;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  gap: 0;
+
+/* ========================================
+   TABLET / MOBILE
+======================================== */
+
+@media (max-width: 900px) {
+
+  #container {
+    width: 92%;
+    max-width: none;
+
+    margin: 22px auto;
+  }
+
+  #layout {
+    grid-template-columns: 1fr;
+  }
+
+  .side-nav,
+  nav,
+  .main-page,
+  main,
+  .side-area,
+  #layout > aside {
+    width: 100%;
+  }
+
+  .hero h2 {
+    font-size: 42px;
+  }
+
+  .site-header h1,
+  header h1 {
+    font-size: 32px;
+  }
+
+  .resume-corner,
+  .writing-corner,
+  .project-corner {
+    width: 100%;
+  }
+
 }
 
+
+/* ========================================
+   SMALL PHONE
+======================================== */
+
+@media (max-width: 520px) {
+
+  #container {
+    width: 94%;
+  }
+
+  .main-page,
+  main {
+    padding: 20px;
+  }
+
+  .content-section,
+  .card {
+    padding: 18px;
+  }
+
+  .resume-document-card,
+  .writing-card {
+    padding: 24px 18px;
+  }
+
+  .hero h2 {
+    font-size: 37px;
+  }
+
+  .button-wrap {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .read-button {
+    text-align: center;
+  }
+
+}
+/* Make all note cards match the soft page color */
+
+.resume-corner,
+.writing-corner,
+.project-corner,
+.words-card,
 .book-page {
-  background: #fffaf7;
+  background: #fff8f1;
+}
+/* Keep main writing and project cards light */
+
+.writing-card {
+  background: #fffdfb;
+}
+/* RESTORE ORIGINAL HOME CENTER PAGE */
+
+#layout > main {
+  background: #fff8f1 !important;
+  border: 2px solid #d8c5b4 !important;
+  border-radius: 22px !important;
+  padding: 20px !important;
+  box-shadow: 0 6px 18px rgba(120, 90, 70, 0.12) !important;
+}
+
+#layout > main .hero {
+  background: transparent !important;
+}
+
+#layout > main .card {
+  margin-top: 18px !important;
+  background: #fffaf3 !important;
+  border: 2px solid #d8c5b4 !important;
+  border-radius: 22px !important;
+  padding: 20px !important;
+  box-shadow: 0 6px 18px rgba(120, 90, 70, 0.12) !important;
+}
+
+#layout > main .hero h2 {
+  font-family: "Marcellus", serif !important;
+  font-size: 52px !important;
+  font-weight: normal !important;
+  color: #6A5149 !important;
+  text-align: center !important;
+  letter-spacing: 1px !important;
+  margin-bottom: 8px !important;
+}
+
+#layout > main .divider {
+  text-align: center !important;
+  color: #D5C2CB !important;
+  font-size: 20px !important;
+  letter-spacing: 2px !important;
+  margin: 12px 0 24px !important;
+}
+header h1,
+header p {
+  text-align: center;
+  width: 100%;
+}
+
+header {
+  text-align: center;
+}
+#container {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+header {
+  width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+/* =========================
+   FULL-WIDTH SITE FOOTER
+========================= */
+
+.site-footer,
+#container > footer {
+  width: 100%;
+
+  margin-top: 20px;
+  padding: 12px 20px;
+
+  background: #f4dce3;
+
   border: 2px solid #d8c5b4;
- min-height: 180px;
+  border-radius: 18px;
+
+  box-shadow: 0 5px 14px rgba(120, 90, 70, 0.10);
+
+  text-align: center;
+}
+
+.site-footer p,
+#container > footer p {
+  margin: 0;
+
+  color: #6b5148;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+}
+.site-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-footer p {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+.site-footer p {
   position: relative;
+  left: -25px;
+}
+header h1,
+header > p {
+  position: relative;
+  left: -25px;
+}
+.words-card .tiny-star {
+  font-size: 11px;
+  color: #d6aeb9;
+  vertical-align: middle;
+  margin-left: 3px;
+}
+.welcome-accent {
+  margin: 10px 0 18px;
+  text-align: center;
+  color: #d6aeb9;
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+.welcome-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 12px 0 22px;
 }
 
-.left-page {
-  border-radius: 28px 8px 8px 28px;
-  border-right: 1px solid #d8c5b4;
-  box-shadow: -6px 7px 14px rgba(120, 90, 70, 0.10);
+.welcome-divider .mini-bow {
+  color: #d6aeb9;
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 400;
 }
 
-.right-page {
-  border-radius: 8px 28px 28px 8px;
-  border-left: 1px solid #d8c5b4;
-  box-shadow: 6px 7px 14px rgba(120, 90, 70, 0.10);
+.welcome-divider .thin-line {
+  width: 145px;
+  height: 1px;
+  background: #d6aeb9;
+  border-radius: 10px;
+}
+.main-button .button-star {
+  font-size: 9px;
+  color: #d6aeb9;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+.writing-title .title-star {
+  font-size: 10px;
+  color: #d6aeb9;
+  margin: 0 7px;
+  vertical-align: middle;
+}
+.writing-section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* center fold */
-.book-notes::after {
-  content: "";
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  left: 50%;
-  width: 8px;
-  transform: translateX(-50%);
-  background: linear-gradient(
-    to right,
-    rgba(120, 90, 70, 0.08),
-    rgba(255, 250, 247, 0.7),
-    rgba(120, 90, 70, 0.08)
-  );
-  border-radius: 50%;
-  pointer-events: none;
+.writing-section-title .section-star {
+  font-size: 10px;
+  color: #d6aeb9;
+  line-height: 1;
 }
-.book-notes {
-  margin-top: 10px;
-}
-
-.book-page {
-  padding: 24px 18px 30px;
-}
-
-.left-page {
-  transform: rotate(-0.8deg);
-}
-
-.right-page {
-  transform: rotate(0.8deg);
-}
-
-.book-notes::before {
-  content: "୨ৎ";
-  position: absolute;
-  bottom: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 24px;
-  color: #b98f9a;
-  z-index: 5;
-}
-aside {
-  align-self: start;
+/* Tiny pink stars */
+.tiny-star,
+.title-star,
+.section-star {
+  font-size: 8px !important;
+  color: #d6aeb9 !important;
+  font-weight: 400 !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
 }
