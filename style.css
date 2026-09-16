@@ -1429,3 +1429,9 @@ header .professional-title {
   font-size: 12px !important;
   margin-top: 14px !important;
 }
+
+/* Slightly balance header name */
+header h1 {
+  position: relative !important;
+  left: -35px !important;
+}
