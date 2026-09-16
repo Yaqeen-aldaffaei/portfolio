@@ -1285,3 +1285,12 @@ header > p {
   vertical-align: middle !important;
   line-height: 1 !important;
 }
+.professional-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #8b6f67;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin: 4px 0 2px;
+}
